@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070908">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Photobooth bertema apokaliptik. Foto diproses di perangkatmu dan tidak diunggah ke mana pun.">
+  <title>DOOMSDAY Photobooth</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070908'/%3E%3Cpath d='M16 3l11 6.5v13L16 29 5 22.5v-13z' fill='none' stroke='%233dff8b' stroke-width='2'/%3E%3Cpath d='M16 10l5 9h-10z' fill='%23e0b84a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/filters.js"></script>
+  <script defer src="js/compose.js"></script>
+  <script defer src="js/camera.js"></script>
+  <script defer src="js/fx.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <!-- Sprite ikon -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24"><path d="M20 7H8a4 4 0 0 0-4 4v1M4 17h12a4 4 0 0 0 4-4v-1"/><path d="M17 4l3 3-3 3M7 14l-3 3 3 3"/></symbol>
+    <symbol id="i-mirror" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 7L3 17h5zM16 7l5 10h-5z"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 18v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><path d="M8.2 10.8l6.6-3.6M8.2 13.2l6.6 3.6"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="1"/><path d="M7 14h10v7H7z"/></symbol>
+    <symbol id="i-retake" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></symbol>
+  </svg>
+
+  <!-- Lapisan atmosfer -->
+  <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- Video sumber kamera (tidak ditampilkan; dipakai sebagai sumber canvas) -->
+  <video id="cam" class="cam-src" playsinline muted autoplay aria-hidden="true" tabindex="-1"></video>
+  <input id="fileInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" tabindex="-1" aria-hidden="true">
+
+  <!-- ============ 1. LANDING ============ -->
+  <main id="screen-landing" class="screen landing" aria-labelledby="logo">
+    <div class="landing-inner">
+      <svg class="sigil" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <polygon points="100,8 180,54 180,146 100,192 20,146 20,54" fill="none" stroke="#3dff8b" stroke-width="3"/>
+        <polygon points="100,34 158,67 158,133 100,166 42,133 42,67" fill="none" stroke="#e0b84a" stroke-width="1.5"/>
+        <polygon points="100,62 140,128 60,128" fill="#e0b84a" opacity=".9"/>
+        <circle cx="100" cy="112" r="7" fill="#070908"/>
+        <path d="M100 8 L92 40 L108 62 L96 90 L112 118 L104 150 L100 192" fill="none" stroke="#ff4a4f" stroke-width="2.5" stroke-linejoin="round"/>
+      </svg>
+      <p class="eyebrow">Protokol Terakhir &bull; Sesi Foto</p>
+      <h1 id="logo" class="logo" data-text="DOOMSDAY" tabindex="-1" data-focus>DOOMSDAY</h1>
+      <p class="tagline">PHOTOBOOTH</p>
+      <p class="lead">Abadikan momen di ambang kehancuran. Ambil foto, pilih bingkai &amp; filter apokaliptik, lalu unduh hasilnya.</p>
+      <div class="actions">
+        <button id="btnStart" class="btn btn-primary btn-lg" type="button">
+          <svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg><span>Mulai</span>
+        </button>
+        <button id="btnLandingUpload" class="btn btn-ghost" type="button">
+          <svg class="ico" aria-hidden="true"><use href="#i-upload"/></svg><span>Unggah dari galeri</span>
+        </button>
+      </div>
+      <p class="privacy"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Foto diproses di perangkatmu, tidak diunggah.</p>
+      <p id="insecureNote" class="note-warn" role="note" hidden>Halaman ini tidak dibuka lewat HTTPS, jadi browser memblokir kamera. Kamu tetap bisa memakai "Unggah dari galeri".</p>
+    </div>
+    <p class="disclaimer">Tema visual orisinal buatan sendiri. Tidak berafiliasi dengan pemilik merek atau karya mana pun.</p>
+  </main>
+
+  <!-- ============ 2. SETUP ============ -->
+  <section id="screen-setup" class="screen setup" aria-labelledby="setupTitle" hidden>
+    <header class="topbar">
+      <button id="btnSetupBack" class="btn-icon" type="button" aria-label="Kembali ke awal"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <h2 id="setupTitle" class="top-title" tabindex="-1" data-focus>Atur Sesi</h2>
+      <button class="btn-icon" type="button" data-sound-toggle aria-pressed="true" aria-label="Suara shutter: aktif">
+        <svg class="ico ico-on" aria-hidden="true"><use href="#i-sound"/></svg><svg class="ico ico-off" aria-hidden="true"><use href="#i-mute"/></svg>
+      </button>
+    </header>
+    <div class="panel-block">
+      <h3 class="sec-title">Pilih layout</h3>
+      <div id="layoutGroup" class="layout-grid" role="radiogroup" aria-label="Layout foto"></div>
+    </div>
+    <div class="panel-block">
+      <h3 class="sec-title">Timer hitung mundur</h3>
+      <div id="timerGroupSetup" class="seg" role="radiogroup" aria-label="Timer hitung mundur"></div>
+    </div>
+    <div class="footer-actions">
+      <button id="btnSetupNext" class="btn btn-primary btn-lg" type="button"><span id="setupNextLabel">Lanjut</span></button>
+    </div>
+  </section>
+
+  <!-- ============ 3. IZIN KAMERA ============ -->
+  <section id="screen-permission" class="screen permission" aria-labelledby="permTitle" hidden>
+    <header class="topbar">
+      <button id="btnPermBack" class="btn-icon" type="button" aria-label="Kembali"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <h2 id="permTitle" class="top-title" tabindex="-1" data-focus>Izin Kamera</h2>
+      <span class="top-spacer" aria-hidden="true"></span>
+    </header>
+    <div class="perm-body">
+      <div id="permIdle" class="card">
+        <svg class="ico ico-xl" aria-hidden="true"><use href="#i-camera"/></svg>
+        <h3>Kami butuh akses kamera</h3>
+        <p>Browser akan menanyakan izin kamera. Kamera dipakai hanya untuk pratinjau dan mengambil fotomu.</p>
+        <ul class="ticks">
+          <li>Foto diproses di perangkatmu, tidak diunggah.</li>
+          <li>Tidak ada pelacak atau analitik.</li>
+          <li>Kamera dimatikan saat kamu pindah layar atau menutup tab.</li>
+        </ul>
+      </div>
+      <div id="permError" class="card card-error" role="alert" hidden>
+        <h3 id="permErrTitle" tabindex="-1">Kamera bermasalah</h3>
+        <p id="permErrBody"></p>
+      </div>
+      <div class="footer-actions stack">
+        <button id="btnAllow" class="btn btn-primary btn-lg" type="button">
+          <svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg><span id="allowLabel">Izinkan Kamera</span>
+        </button>
+        <button id="btnPermUpload" class="btn btn-ghost" type="button">
+          <svg class="ico" aria-hidden="true"><use href="#i-upload"/></svg><span>Unggah dari galeri</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. BOOTH ============ -->
+  <section id="screen-booth" class="screen booth" aria-label="Kamera photobooth" hidden>
+    <header class="topbar">
+      <button id="btnBoothBack" class="btn-icon" type="button" aria-label="Kembali"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <h2 id="boothProgress" class="top-title" tabindex="-1" data-focus>Siap</h2>
+      <button class="btn-icon" type="button" data-sound-toggle aria-pressed="true" aria-label="Suara shutter: aktif">
+        <svg class="ico ico-on" aria-hidden="true"><use href="#i-sound"/></svg><svg class="ico ico-off" aria-hidden="true"><use href="#i-mute"/></svg>
+      </button>
+    </header>
+    <div id="stageWrap" class="stage-wrap">
+      <div id="stage" class="stage">
+        <canvas id="previewCanvas" role="img" aria-label="Pratinjau kamera langsung"></canvas>
+        <div id="countdown" class="countdown" aria-hidden="true"></div>
+        <div id="flash" class="flash" aria-hidden="true"></div>
+        <div id="boothThumbs" class="thumbs-overlay" aria-hidden="true"></div>
+        <div id="stageLoading" class="stage-loading" role="status" hidden>
+          <span class="spinner" aria-hidden="true"></span><span id="loadingText">Menyiapkan kamera…</span>
+        </div>
+        <i class="corner tl" aria-hidden="true"></i><i class="corner tr" aria-hidden="true"></i>
+        <i class="corner bl" aria-hidden="true"></i><i class="corner br" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div id="boothControls" class="controls">
+      <div id="filterGroupBooth" class="chip-row" role="radiogroup" aria-label="Filter"></div>
+      <div class="tools">
+        <button id="btnMirror" class="chip" type="button" aria-pressed="true">
+          <svg class="ico" aria-hidden="true"><use href="#i-mirror"/></svg><span>Cermin</span>
+        </button>
+        <div id="timerGroupBooth" class="seg" role="radiogroup" aria-label="Timer hitung mundur"></div>
+      </div>
+      <div class="shutter-row">
+        <button id="btnBoothUpload" class="btn-icon lg" type="button" aria-label="Unggah foto dari galeri"><svg class="ico" aria-hidden="true"><use href="#i-upload"/></svg></button>
+        <button id="btnShutter" class="shutter" type="button" aria-label="Mulai sesi foto"><span class="shutter-core"></span></button>
+        <button id="btnFlip" class="btn-icon lg is-gone" type="button" aria-label="Ganti kamera depan atau belakang" tabindex="-1"><svg class="ico" aria-hidden="true"><use href="#i-flip"/></svg></button>
+      </div>
+      <p class="hint">Tekan <kbd>Spasi</kbd> untuk mulai &bull; <kbd>Esc</kbd> untuk batal</p>
+    </div>
+  </section>
+
+  <!-- ============ 5. HASIL ============ -->
+  <section id="screen-result" class="screen result" aria-labelledby="resultTitle" hidden>
+    <header class="topbar">
+      <button id="btnResultBack" class="btn-icon" type="button" aria-label="Kembali ke pengaturan layout"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <h2 id="resultTitle" class="top-title" tabindex="-1" data-focus>Hasil Fotomu</h2>
+      <span class="top-spacer" aria-hidden="true"></span>
+    </header>
+    <div id="paperWrap" class="paper-wrap">
+      <div id="paper" class="paper">
+        <canvas id="resultCanvas" role="img" aria-label="Hasil akhir foto dengan bingkai"></canvas>
+      </div>
+    </div>
+    <div class="side">
+      <div class="tabs" role="tablist" aria-label="Kustomisasi hasil">
+        <button id="tabFrame" class="tab" type="button" role="tab" aria-selected="true" aria-controls="panelFrame">Bingkai</button>
+        <button id="tabFilter" class="tab" type="button" role="tab" aria-selected="false" aria-controls="panelFilter" tabindex="-1">Filter</button>
+        <button id="tabSticker" class="tab" type="button" role="tab" aria-selected="false" aria-controls="panelSticker" tabindex="-1">Stiker</button>
+      </div>
+      <div id="panelFrame" class="tab-panel" role="tabpanel" aria-labelledby="tabFrame">
+        <div id="frameGroup" class="chip-wrap" role="radiogroup" aria-label="Bingkai"></div>
+      </div>
+      <div id="panelFilter" class="tab-panel" role="tabpanel" aria-labelledby="tabFilter" hidden>
+        <div id="filterGroupResult" class="chip-wrap" role="radiogroup" aria-label="Filter"></div>
+      </div>
+      <div id="panelSticker" class="tab-panel" role="tabpanel" aria-labelledby="tabSticker" hidden>
+        <div id="stickerGroup" class="chip-wrap" role="group" aria-label="Stiker (bisa pilih lebih dari satu)"></div>
+        <button id="btnClearStickers" class="btn btn-ghost btn-sm" type="button">Hapus semua stiker</button>
+      </div>
+
+      <h3 class="sec-title">Ulangi foto</h3>
+      <div id="resultThumbs" class="rthumbs"></div>
+
+      <div class="actions-grid">
+        <button id="btnPng" class="btn btn-primary" type="button"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Unduh PNG</span></button>
+        <button id="btnJpg" class="btn btn-primary" type="button"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Unduh JPG</span></button>
+        <button id="btnShare" class="btn btn-gold" type="button"><svg class="ico" aria-hidden="true"><use href="#i-share"/></svg><span>Bagikan</span></button>
+        <button id="btnPrint" class="btn btn-gold" type="button"><svg class="ico" aria-hidden="true"><use href="#i-print"/></svg><span>Siap cetak 4x6</span></button>
+        <button id="btnRetakeAll" class="btn btn-ghost" type="button"><svg class="ico" aria-hidden="true"><use href="#i-retake"/></svg><span>Ulangi semua</span></button>
+        <button id="btnRestart" class="btn btn-ghost" type="button"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg><span>Sesi baru</span></button>
+      </div>
+      <p class="hint hint-show">iPhone: jika unduhan tidak muncul, pakai Bagikan lalu Simpan Gambar. Lembar cetak 4x6 berukuran 1800x1200 piksel (300 dpi).</p>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="live" class="sr-only" role="status" aria-live="assertive"></div>
+</body>
+</html>
