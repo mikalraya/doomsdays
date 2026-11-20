@@ -522,7 +522,7 @@
       if (temp) { temp.width = temp.height = 0; }
       if (!blob) { toast('Gagal membuat gambar. Coba lagi.'); return; }
       saveBlob(blob, stamp() + (kind === 'print' ? '-cetak-4x6' : '') + (jpg ? '.jpg' : '.png'));
-      toast('Gambar diunduh.');
+      toast('Gambar diunduh. Di iPhone, kalau tidak muncul, pakai Bagikan.');
     } catch (e) {
       toast('Gagal membuat gambar. Coba lagi.');
     } finally { busy = false; }
@@ -568,7 +568,7 @@
         b.appendChild(el('span', 'desc', it.desc));
       }, 'lcard');
 
-    var timers = [{ id: 3, label: '3 dtk' }, { id: 5, label: '5 dtk' }, { id: 10, label: '10 dtk' }];
+    var timers = [{ id: 3, label: '3s' }, { id: 5, label: '5s' }, { id: 10, label: '10s' }];
     ['timerGroupSetup', 'timerGroupBooth'].forEach(function (id) {
       radioGroup($(id), timers, function () { return state.timer; }, function (v) { state.timer = Number(v); },
         function (b, it) { b.textContent = it.label; b.setAttribute('aria-label', 'Timer ' + it.id + ' detik'); });

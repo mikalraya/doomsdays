@@ -484,3 +484,130 @@ body[data-screen="landing"] .bar-track { display: none; }
 
 body { font-weight: 600; }
 .modal-body li, .modal-body .note { font-weight: 600; }
+
+
+/* ============ Rapikan untuk HP ============ */
+body * { font-weight: 600; }
+* { scrollbar-width: thin; scrollbar-color: var(--frame) var(--panel); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--panel); }
+::-webkit-scrollbar-thumb { background: var(--frame); border: 2px solid #000; }
+
+.l-links { display: none; align-items: center; justify-content: center; gap: 10px; }
+.l-links button { min-height: 40px; padding: 0 8px; background: none; border: 0; color: var(--dim); font-size: 14px; letter-spacing: .1em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 4px; }
+.l-links i { display: inline-block; width: 6px; height: 6px; background: var(--gold); }
+
+/* --- HP potret --- */
+@media (max-width: 600px) {
+  .corner-btn { top: calc(var(--safe-t) + 6px + var(--fw) + 46px); width: 44px; height: 44px; }
+  .cb-l svg, .cb-r .ico { width: 24px; height: 24px; }
+  .side-tabs { display: none !important; }
+  .landing .privacy { display: block; text-align: center; line-height: 1.5; max-width: 30ch; }
+  .landing .privacy .ico { display: inline-block; vertical-align: -4px; margin-right: 6px; }
+
+  .layout-grid { gap: 10px; }
+  .lcard { min-height: 124px; padding: 10px; gap: 6px; }
+  .lcard .desc { font-size: 14px; }
+  .mini { width: 48px; height: 62px; }
+  .mini-strip3 { width: 36px; } .mini-strip4 { width: 32px; } .mini-grid { width: 58px; height: 58px; }
+  .footer-actions { padding-top: 12px; }
+
+  .controls { gap: 6px; }
+  .controls .hint { display: none; }
+  .tools { flex-wrap: nowrap; gap: 8px; justify-content: space-between; }
+  #btnMirror { padding: 0 10px; gap: 6px; }
+  .seg .chip { min-width: 46px; padding: 0 8px; }
+  .chip-row { padding-bottom: 6px; }
+
+  .result { grid-template-rows: auto minmax(220px, 1fr) auto; }
+  .side { max-height: none; overflow: visible; gap: 8px; padding-bottom: 4px; }
+  .tab-panel .chip-wrap { flex-wrap: nowrap; overflow-x: auto; padding: 2px 3px 8px; scrollbar-width: none; }
+  .tab-panel .chip-wrap::-webkit-scrollbar { display: none; }
+  .tab-panel .chip { font-size: 14px; min-height: 40px; padding: 0 10px; }
+  #btnClearStickers { margin-top: 0; }
+  .side .sec-title { margin-bottom: 2px; }
+  .rthumbs { flex-wrap: nowrap; overflow-x: auto; gap: 8px; padding-bottom: 6px; }
+  .rthumb canvas { width: 60px; }
+  .rthumb .chip { font-size: 14px; min-height: 36px; padding: 0 8px; }
+  .actions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .actions-grid .btn { flex-direction: column; gap: 2px; min-height: 58px; padding: 4px 2px; font-size: 14px; letter-spacing: .02em; text-align: center; line-height: 1.1; }
+  .hint-show { display: none; }
+}
+
+/* --- HP pendek (layar kecil / iPhone SE): sembunyikan area film --- */
+@media (max-height: 700px) and (orientation: portrait) {
+  body[data-screen="landing"] { --below: 0px; }
+  body[data-screen="landing"] .below, body[data-screen="landing"] .tags { display: none; }
+  .l-links { display: flex; }
+  .hang { height: 80px; }
+  .hang-doom { width: 52px; height: 52px; }
+}
+
+/* --- HP landscape --- */
+@media (max-height: 520px) {
+  :root { --pad-t: calc(var(--safe-t) + 6px + var(--fw) + 6px); }
+  body { --pad-b: calc(var(--safe-b) + var(--below) + 6px + var(--fw) + 52px); }
+  .plate { display: none; }
+  .bar { height: 40px; }
+  .bar-ticker { height: 36px; }
+  .bar-sound { width: 40px; height: 40px; }
+  .bar-icon { width: 28px; height: 28px; }
+  .screen { gap: 8px; }
+  .top-title { font-size: 18px; }
+  .btn-icon { width: 40px; height: 40px; }
+  .btn-icon.lg { width: 48px; height: 48px; }
+  .top-spacer { width: 40px; }
+  .shutter { width: 62px; height: 62px; }
+  .shutter-core { width: 30px; height: 30px; }
+  .controls .hint, .hint-show { display: none; }
+  .chip { min-height: 38px; }
+  body[data-screen="landing"] { --below: 0px; }
+  body[data-screen="landing"] .below, body[data-screen="landing"] .tags, body[data-screen="landing"] .side-tabs { display: none; }
+  .corner-btn { top: calc(var(--safe-t) + 6px + var(--fw) + 6px); width: 40px; height: 40px; }
+  .l-links { display: flex; }
+  .landing-inner { max-width: 820px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; row-gap: 8px; align-items: center; justify-items: center; }
+  .hang { grid-column: 1; grid-row: 1; height: 64px; }
+  .hang-doom { width: 48px; height: 48px; }
+  .welcome { grid-column: 1; grid-row: 2; }
+  .segs { grid-column: 1; grid-row: 3; }
+  .choose { grid-column: 2; grid-row: 1; align-self: end; margin: 0; }
+  .sound-opts { grid-column: 2; grid-row: 2; }
+  .landing-inner > .btn-link { grid-column: 2; grid-row: 3; }
+  .landing .privacy { grid-column: 2; grid-row: 4; }
+  .landing .note-warn { grid-column: 1 / -1; grid-row: 5; }
+  .l-links { grid-column: 2; grid-row: 5; }
+}
+
+/* kunci lebar kolom agar baris geser tidak melebarkan halaman */
+@media not all and (orientation: landscape) and (min-width: 760px) {
+  .booth, .result { grid-template-columns: minmax(0, 1fr); }
+}
+.controls, .side, .tab-panel, .chip-row, .chip-wrap, .rthumbs { min-width: 0; max-width: 100%; }
+
+@media (max-width: 600px) { #btnClearStickers { font-size: 14px; min-height: 40px; } }
+
+/* sentuhan akhir HP */
+.landing .privacy { display: block; text-align: center; line-height: 1.5; max-width: 34ch; }
+.landing .privacy .ico { display: inline-block; vertical-align: -4px; margin-right: 6px; }
+@media (max-width: 600px) {
+  .actions-grid { order: -1; }
+  .side .tabs { margin-top: 2px; }
+}
+@media (max-width: 380px) {
+  .btn-px { font-size: 14px; padding: 0 10px; min-height: 44px; }
+  .sound-opts { gap: 8px; flex-wrap: nowrap; }
+  .welcome { font-size: 14px; }
+}
+@media (max-height: 520px) { .tools { flex-wrap: nowrap; } }
+
+/* swatch filter & bingkai tambahan */
+.sw-sepia { background: linear-gradient(135deg, #3a2412 50%, #f0dcb0 50%); }
+.sw-noir { background: linear-gradient(135deg, #000 50%, #fff 50%); }
+.sw-multi { background: linear-gradient(135deg, #7a3cff 50%, #2de2ff 50%); }
+.sw-pixel { background: conic-gradient(#3dff8b 25%, #0a3a20 0 50%, #3dff8b 0 75%, #0a3a20 0); background-size: 8px 8px; }
+.sw-thermal { background: linear-gradient(90deg, #3c0090, #c8143c, #ffaa00, #ffffe6); }
+.sw-blueprint { background: linear-gradient(135deg, #04143c 50%, #d2f0ff 50%); }
+.sw-f-latveria { background: linear-gradient(135deg, #0a2a18 50%, #ffd45a 50%); }
+.sw-f-steel { background: linear-gradient(135deg, #2c3531 50%, #eef3f0 50%); }
+.sw-f-multiverse { background: linear-gradient(135deg, #130a33 50%, #7fe8ff 50%); }
+.sw-f-pixel { background: linear-gradient(135deg, #06150e 50%, #2f8f5d 50%); }

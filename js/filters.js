@@ -48,7 +48,12 @@
     doom: buildLut([[0, [2, 8, 4]], [0.45, [10, 78, 38]], [0.8, [61, 255, 139]], [1, [205, 255, 224]]]),
     ash: buildLut([[0, [6, 6, 6]], [1, [236, 236, 230]]]),
     gold: buildLut([[0, [20, 11, 3]], [0.5, [150, 100, 28]], [0.85, [240, 190, 80]], [1, [255, 238, 176]]]),
-    crimson: buildLut([[0, [10, 0, 2]], [0.5, [122, 10, 18]], [0.85, [235, 62, 50]], [1, [255, 212, 192]]])
+    crimson: buildLut([[0, [10, 0, 2]], [0.5, [122, 10, 18]], [0.85, [235, 62, 50]], [1, [255, 212, 192]]]),
+    sepia: buildLut([[0, [20, 10, 4]], [0.5, [140, 100, 60]], [1, [250, 235, 200]]]),
+    noir: buildLut([[0, [0, 0, 0]], [1, [255, 255, 255]]]),
+    multi: buildLut([[0, [12, 6, 40]], [0.4, [122, 60, 255]], [0.75, [45, 226, 255]], [1, [255, 214, 246]]]),
+    thermal: buildLut([[0, [0, 0, 30]], [0.2, [60, 0, 140]], [0.45, [200, 20, 60]], [0.7, [255, 170, 0]], [1, [255, 255, 230]]]),
+    blueprint: buildLut([[0, [4, 20, 60]], [0.6, [30, 110, 200]], [1, [210, 240, 255]]])
   };
 
   function duotone(img, lut, contrast, bright, mix, grain, seed) {
@@ -102,13 +107,36 @@
     }
   }
 
+  /* pikselasi blok + posterisasi warna (8-bit) */
+  function pixelate(img, w, h) {
+    var d = img.data, b = Math.max(4, Math.round(w / 110)), step = 255 / 4;
+    for (var by = 0; by < h; by += b) {
+      for (var bx = 0; bx < w; bx += b) {
+        var r = 0, g = 0, bl = 0, n = 0, ye = Math.min(h, by + b), xe = Math.min(w, bx + b), x, y, p;
+        for (y = by; y < ye; y++) {
+          for (x = bx; x < xe; x++) { p = (y * w + x) * 4; r += d[p]; g += d[p + 1]; bl += d[p + 2]; n++; }
+        }
+        r = Math.round(r / n / step) * step; g = Math.round(g / n / step) * step; bl = Math.round(bl / n / step) * step;
+        for (y = by; y < ye; y++) {
+          for (x = bx; x < xe; x++) { p = (y * w + x) * 4; d[p] = r; d[p + 1] = g; d[p + 2] = bl; }
+        }
+      }
+    }
+  }
+
   var LIST = [
     { id: 'normal', label: 'Normal' },
     { id: 'doom', label: 'Doom Green' },
     { id: 'ash', label: 'Ash Grayscale' },
     { id: 'gold', label: 'Golden Hour' },
     { id: 'glitch', label: 'Glitch' },
-    { id: 'crimson', label: 'Retak Merah' }
+    { id: 'crimson', label: 'Retak Merah' },
+    { id: 'sepia', label: 'Arsip Tua' },
+    { id: 'noir', label: 'Noir' },
+    { id: 'multi', label: 'Multiverse' },
+    { id: 'pixel', label: 'Pixel 8-bit' },
+    { id: 'thermal', label: 'Termal' },
+    { id: 'blueprint', label: 'Cetak Biru' }
   ];
 
   function apply(id, ctx, w, h, seed) {
@@ -121,6 +149,12 @@
       case 'gold': duotone(img, LUT.gold, 1.1, 4, 0.2, 0, 0); break;
       case 'crimson': duotone(img, LUT.crimson, 1.25, -6, 0.08, 0, 0); break;
       case 'glitch': glitch(img, w, h, seed + 101); break;
+      case 'sepia': duotone(img, LUT.sepia, 1.1, 0, 0, 10, seed + 5); break;
+      case 'noir': duotone(img, LUT.noir, 1.9, -14, 0, 16, seed + 9); break;
+      case 'multi': duotone(img, LUT.multi, 1.2, 0, 0.08, 0, 0); break;
+      case 'thermal': duotone(img, LUT.thermal, 1.1, 0, 0, 0, 0); break;
+      case 'blueprint': duotone(img, LUT.blueprint, 1.3, -4, 0, 0, 0); break;
+      case 'pixel': pixelate(img, w, h); break;
       default: return;
     }
     ctx.putImageData(img, 0, 0);
