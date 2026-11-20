@@ -611,3 +611,14 @@ body * { font-weight: 600; }
 .sw-f-steel { background: linear-gradient(135deg, #2c3531 50%, #eef3f0 50%); }
 .sw-f-multiverse { background: linear-gradient(135deg, #130a33 50%, #7fe8ff 50%); }
 .sw-f-pixel { background: linear-gradient(135deg, #06150e 50%, #2f8f5d 50%); }
+
+/* swatch bingkai pahlawan */
+.sw-f-ironman { background: linear-gradient(135deg, #c4161c 50%, #ffd45a 50%); }
+.sw-f-cap { background: linear-gradient(135deg, #1f4aa8 34%, #f4f7ff 34% 67%, #d8202a 67%); }
+.sw-f-thor { background: linear-gradient(135deg, #0b2140 50%, #9fd2ff 50%); }
+.sw-f-hulk { background: linear-gradient(135deg, #4cb04a 50%, #8a3fd0 50%); }
+.sw-f-widow { background: linear-gradient(135deg, #111 50%, #ff3b3b 50%); }
+.sw-f-hawk { background: linear-gradient(135deg, #1e1245 50%, #b184ff 50%); }
+.sw-f-strange { background: linear-gradient(135deg, #3a1a05 50%, #ffae3c 50%); }
+.sw-f-wanda { background: linear-gradient(135deg, #3a0614 50%, #ff2d55 50%); }
+.sw-f-reed { background: linear-gradient(135deg, #0a2a66 50%, #5fb4ff 50%); }

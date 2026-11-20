@@ -84,7 +84,7 @@
       accent: '#3dff8b', dim: 'rgba(190,230,205,0.7)', crack: null, cell: '#3dff8b'
     },
     gold: {
-      label: 'Emas Retak', title: 'HARI TERAKHIR', sub: 'FINAL HOUR  //  PHOTOBOOTH',
+      label: 'Gold', title: 'DOOMSDAY', sub: 'FINAL HOUR  //  PHOTOBOOTH',
       bg: [[0, '#070605'], [0.5, '#12100a'], [1, '#070605']], glow: 'rgba(224,184,74,0.16)',
       pattern: 'none', patternColor: '',
       border: 'gold', line: '#e0b84a', line2: 'rgba(246,224,143,0.4)',
@@ -92,7 +92,7 @@
       accent: '#e0b84a', dim: 'rgba(240,222,170,0.72)', crack: '#d3202a', cell: '#e0b84a'
     },
     crimson: {
-      label: 'Reruntuhan', title: 'RERUNTUHAN', sub: 'ABU  //  API  //  SISA',
+      label: 'Red', title: 'MAXMIMOFF', sub: 'ABU  //  API  //  SISA',
       bg: [[0, '#1b0508'], [0.55, '#0a0304'], [1, '#050102']], glow: 'rgba(255,74,79,0.18)',
       pattern: 'specks', patternColor: '',
       border: 'torn', line: '#ff4a4f', line2: 'rgba(255,74,79,0.4)',
@@ -108,7 +108,7 @@
       accent: '#ffd45a', dim: 'rgba(190,235,205,0.75)', crack: null, cell: '#1fae5c'
     },
     steel: {
-      label: 'Zirah Baja', title: 'ZIRAH BAJA', sub: 'MARK  //  DOOM',
+      label: 'Zirah', title: 'DOOMSDAY', sub: 'MARK  //  DOOM',
       bg: [[0, '#1d2421'], [0.5, '#2c3531'], [1, '#141a18']], glow: 'rgba(61,255,139,0.12)',
       pattern: 'brushed', patternColor: '', border: 'rivet', metal: ['#eef3f0', '#6f7c76'],
       line: '#9db0a6', line2: 'rgba(61,255,139,0.35)',
@@ -124,15 +124,87 @@
       accent: '#7fe8ff', dim: 'rgba(200,215,255,0.75)', crack: '#c07bff', cell: '#7fe8ff'
     },
     pixel: {
-      label: 'Pixel Konsol', title: 'DOOM BOOTH', sub: 'SESI SIAGA',
+      label: 'Pixel', title: 'DOOM BOOTH', sub: 'SESI SIAGA',
       bg: [[0, '#06150e'], [1, '#06150e']], glow: null,
       pattern: 'grid', patternColor: 'rgba(61,255,139,0.1)', border: 'pixel',
       line: '#2f8f5d', line2: '#000',
       title1: '#ffe58a', title2: '#ffd45a', titleGlow: null,
       accent: '#ffd45a', dim: '#92b9a2', crack: null, cell: '#6fe3a0'
     },
+    ironman: {
+      label: 'Iron Man', title: 'IRON MAN', sub: 'ZIRAH  //  REAKTOR ARK',
+      bg: [[0, '#2a0505'], [0.5, '#4a0a0a'], [1, '#1a0303']], glow: 'rgba(255,200,80,0.25)',
+      pattern: 'rings', patternColor: 'rgba(255,210,90,0.10)', border: 'rivet', metal: ['#ffe28a', '#b8860b'],
+      line: '#e8b92a', line2: 'rgba(255,226,138,0.4)',
+      title1: '#fff0b0', title2: '#e8b92a', titleGlow: 'rgba(255,60,40,0.7)',
+      accent: '#ffd45a', dim: 'rgba(255,225,200,0.8)', crack: null, cell: '#e8b92a'
+    },
+    cap: {
+      label: 'Captain America', title: 'CAPTAIN AMERICA', sub: 'PERISAI  //  BINTANG',
+      bg: [[0, '#08143a'], [0.5, '#0d2260'], [1, '#050d28']], glow: 'rgba(120,170,255,0.2)',
+      pattern: 'stripes', patternColor: '', border: 'tech',
+      line: '#f2f5ff', line2: 'rgba(255,74,79,0.6)',
+      title1: '#ffffff', title2: '#c8d6ff', titleGlow: 'rgba(60,100,255,0.7)',
+      accent: '#ff6a6f', dim: 'rgba(210,225,255,0.8)', crack: null, cell: '#f2f5ff'
+    },
+    thor: {
+      label: 'Thor', title: 'THOR', sub: 'PETIR  //  PALU',
+      bg: [[0, '#05101f'], [0.5, '#0b2140'], [1, '#030a14']], glow: 'rgba(130,200,255,0.25)',
+      pattern: 'none', patternColor: '', border: 'rivet', metal: ['#e6eef6', '#6f8aa6'],
+      line: '#9fd2ff', line2: 'rgba(159,210,255,0.4)',
+      title1: '#ffffff', title2: '#8fc8ff', titleGlow: 'rgba(120,200,255,0.9)',
+      accent: '#8fd0ff', dim: 'rgba(200,225,250,0.8)', crack: '#bfe6ff', cell: '#8fd0ff'
+    },
+    hulk: {
+      label: 'Hulk', title: 'HULK', sub: 'GAMMA  //  AMUK',
+      bg: [[0, '#0d1b0a'], [0.5, '#1d3d14'], [1, '#07110a']], glow: 'rgba(110,255,90,0.2)',
+      pattern: 'specks', patternColor: '', border: 'torn',
+      line: '#6bff4a', line2: 'rgba(180,90,255,0.45)',
+      title1: '#d4ffc0', title2: '#4cd130', titleGlow: 'rgba(120,255,80,0.7)',
+      accent: '#6bff4a', dim: 'rgba(210,255,200,0.8)', crack: '#8a3fd0', cell: '#6bff4a'
+    },
+    widow: {
+      label: 'Black Widow', title: 'BLACK WIDOW', sub: 'MATA-MATA  //  SENYAP',
+      bg: [[0, '#0a0a0c'], [0.5, '#17171b'], [1, '#050506']], glow: 'rgba(255,40,40,0.14)',
+      pattern: 'hex', patternColor: 'rgba(255,60,60,0.08)', border: 'tech',
+      line: '#ff3b3b', line2: 'rgba(255,60,60,0.35)',
+      title1: '#ffd0d0', title2: '#ff3b3b', titleGlow: 'rgba(255,40,40,0.7)',
+      accent: '#ff4a4f', dim: 'rgba(235,215,215,0.75)', crack: null, cell: '#ff3b3b'
+    },
+    hawk: {
+      label: 'Hawkeye', title: 'HAWKEYE', sub: 'PANAH  //  TEPAT SASARAN',
+      bg: [[0, '#0d0820'], [0.5, '#1e1245'], [1, '#07041a']], glow: 'rgba(170,110,255,0.2)',
+      pattern: 'hatch', patternColor: 'rgba(170,120,255,0.06)', border: 'tech',
+      line: '#b184ff', line2: 'rgba(177,132,255,0.4)',
+      title1: '#efe2ff', title2: '#a070ff', titleGlow: 'rgba(160,110,255,0.7)',
+      accent: '#c09bff', dim: 'rgba(225,215,255,0.8)', crack: null, cell: '#b184ff'
+    },
+    strange: {
+      label: 'Doctor Strange', title: 'DOCTOR STRANGE', sub: 'SIHIR  //  MANDALA',
+      bg: [[0, '#1f0d03'], [0.5, '#3a1a05'], [1, '#120702']], glow: 'rgba(255,170,60,0.28)',
+      pattern: 'rings', patternColor: 'rgba(255,170,60,0.10)', border: 'portal',
+      line: '#ffae3c', line2: 'rgba(255,200,100,0.45)',
+      title1: '#fff0c0', title2: '#ff9a2a', titleGlow: 'rgba(255,150,40,0.8)',
+      accent: '#ffb84d', dim: 'rgba(255,230,200,0.8)', crack: null, cell: '#ffae3c'
+    },
+    wanda: {
+      label: 'Scarlet Witch', title: 'SCARLET WITCH', sub: 'CHAOS  //  MAGIS MERAH',
+      bg: [[0, '#1a0308'], [0.5, '#3a0614'], [1, '#0d0104']], glow: 'rgba(255,40,80,0.25)',
+      pattern: 'rings', patternColor: 'rgba(255,60,90,0.08)', border: 'torn',
+      line: '#ff2d55', line2: 'rgba(255,60,100,0.4)',
+      title1: '#ffc0cc', title2: '#ff2d55', titleGlow: 'rgba(255,40,80,0.85)',
+      accent: '#ff4d70', dim: 'rgba(255,205,215,0.8)', crack: '#ff2d55', cell: '#ff2d55'
+    },
+    reed: {
+      label: 'Mr. Fantastic', title: 'MR. FANTASTIC', sub: 'ILMUAN  //  MELAR',
+      bg: [[0, '#04122e'], [0.5, '#0a2a66'], [1, '#030b1d']], glow: 'rgba(90,170,255,0.22)',
+      pattern: 'grid', patternColor: 'rgba(120,190,255,0.09)', border: 'tech',
+      line: '#5fb4ff', line2: 'rgba(95,180,255,0.4)',
+      title1: '#e6f4ff', title2: '#4aa0ff', titleGlow: 'rgba(90,170,255,0.8)',
+      accent: '#7fc4ff', dim: 'rgba(205,225,250,0.8)', crack: null, cell: '#5fb4ff'
+    },
     plain: {
-      label: 'Polos Arang', title: 'DOOMSDAY', sub: 'PHOTOBOOTH',
+      label: 'White', title: 'DOOMSDAY', sub: 'PHOTOBOOTH',
       bg: [[0, '#f3f1ea'], [1, '#f3f1ea']], glow: null,
       pattern: 'none', patternColor: '',
       border: 'thin', line: '#14201a', line2: 'rgba(20,32,26,0.4)',
@@ -175,6 +247,30 @@
       for (var by = 0; by < H; by += 3 * s) {
         ctx.strokeStyle = 'rgba(255,255,255,' + (0.02 + rnd() * 0.06).toFixed(3) + ')';
         ctx.beginPath(); ctx.moveTo(0, by); ctx.lineTo(W, by); ctx.stroke();
+      }
+    }
+    if (th.pattern === 'stripes') {
+      var sw = 90 * s;
+      for (var sx = -H; sx < W + H; sx += sw * 2) {
+        ctx.fillStyle = 'rgba(255,255,255,0.05)';
+        ctx.beginPath(); ctx.moveTo(sx, 0); ctx.lineTo(sx + sw, 0); ctx.lineTo(sx + sw + H, H); ctx.lineTo(sx + H, H); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(255,74,79,0.07)';
+        ctx.beginPath(); ctx.moveTo(sx + sw, 0); ctx.lineTo(sx + sw * 2, 0); ctx.lineTo(sx + sw * 2 + H, H); ctx.lineTo(sx + sw + H, H); ctx.closePath(); ctx.fill();
+      }
+    }
+    if (th.pattern === 'hex') {
+      var hr = 40 * s, hh = hr * Math.sqrt(3);
+      ctx.strokeStyle = th.patternColor; ctx.lineWidth = Math.max(1, 2 * s);
+      for (var hrow = -1; hrow * hh * 0.5 < H + hh; hrow++) {
+        for (var hcol = -1; hcol * hr * 3 < W + hr * 3; hcol++) {
+          var hx = hcol * hr * 3 + (hrow % 2 ? hr * 1.5 : 0), hy = hrow * hh * 0.5;
+          ctx.beginPath();
+          for (var hk = 0; hk < 6; hk++) {
+            var ha = Math.PI / 3 * hk, hpx = hx + Math.cos(ha) * hr, hpy = hy + Math.sin(ha) * hr;
+            if (hk) ctx.lineTo(hpx, hpy); else ctx.moveTo(hpx, hpy);
+          }
+          ctx.closePath(); ctx.stroke();
+        }
       }
     }
     if (th.crack) {
@@ -461,12 +557,52 @@
     ctx.shadowColor = '#e0b84a'; ctx.shadowBlur = px * 0.3; ctx.fillStyle = g; ctx.fill(); ctx.shadowBlur = 0; ctx.lineWidth = 0.07; ctx.strokeStyle = '#1a1405'; ctx.stroke();
   };
 
+  /* Stiker ikon pahlawan gaya pixel 16x16 (gambar sendiri, tanpa logo/emblem resmi) */
+  function pixelSprite(art, pal) {
+    return function (ctx) {
+      var c = 1.9 / 16;
+      for (var y = 0; y < 16; y++) {
+        for (var x = 0; x < 16; x++) {
+          var ch = art[y].charAt(x);
+          if (ch === '.') continue;
+          ctx.fillStyle = pal[ch] || '#000'; ctx.fillRect(-0.95 + x * c, -0.95 + y * c, c + 0.004, c + 0.004);
+        }
+      }
+    };
+  }
+  var HERO_ART = {
+    ironman: ['....oooooooo....', '..ooRRRRRRRRoo..', '.oRRRRRRRRRRRRo.', '.oRRGGGGGGGGRRo.', 'oRRGGGGGGGGGGRRo', 'oRRGwwwGGwwwGRRo', 'oRRGGGGGGGGGGRRo', 'oRRGGGGGGGGGGRRo', 'oRRGGGGooGGGGRRo', 'oRRRGGGGGGGGRRRo', 'oRRRGGoGGoGGRRRo', '.oRRRGGGGGGRRRo.', '.oRRRRGGGGRRRRo.', '..oRRRRRRRRRRo..', '...ooRRRRRRoo...', '.....oooooo.....'],
+    cap: ['....oooooooo....', '..ooBBBBBBBBoo..', '.oBBBBBBBBBBBBo.', '.oBBBBBWWBBBBBo.', 'oBBBBBBWWBBBBBBo', 'oWBBSSSSSSSSBBWo', 'oWWBSwwSSwwSBWWo', 'oWBBSSSSSSSSBBWo', 'oBBBSSSSSSSSBBBo', 'oBBBSSSkkSSSBBBo', '.oBBSSSSSSSSBBo.', '.oBBBSSkkSSBBBo.', '.oBBBBSSSSBBBBo.', '..oBBBBSSBBBBo..', '...ooBBBBBBoo...', '.....oooooo.....'],
+    thor: ['....oooooooo....', '..ooYYYYYYYYoo..', '.oYYYYYYYYYYYYo.', 'oMMYYYMMMMYYYMMo', 'oMYYSSSSSSSSYYMo', 'oYYYSSSSSSSSYYYo', 'oYYSbbSSSSbbSYYo', 'oYYYSSSSSSSSYYYo', 'oYYYSSSSSSSSYYYo', 'oYYYDDDDDDDDYYYo', '.oYYDDDkkDDDYYo.', '.oYYYDDDDDDYYYo.', '.oYYYYDDDDYYYYo.', '..oYYYYDDYYYYo..', '...ooYYYYYYoo...', '.....oooooo.....'],
+    hulk: ['...oooooooooo...', '..oHHHHHHHHHHo..', '.oHHHHHHHHHHHHo.', '.oHHHHHHHHHHHHo.', 'oHHGGGGGGGGGGHHo', 'oGGggggggggggGGo', 'oGGGwwGGGGwwGGGo', 'oGGGGkGGGGGGkGGo', 'oGGGGGGggggGGGGo', 'oGGGGGGGGGGGGGGo', 'oGGGkkkkkkkkGGGo', '.oGGkwwwwwwkGGo.', '.oGGGkkkkkkGGGo.', '..oGGGGGGGGGGo..', '...ooGGGGGGoo...', '.....oooooo.....'],
+    widow: ['....oooooooo....', '..ooRRRRRRRRoo..', '.oRRRRRRRRRRRRo.', 'oRRRRSSSSSSRRRRo', 'oRRRSSSSSSSSRRRo', 'oRRSSSSSSSSSSRRo', 'oRRSgSSSSSSgSRRo', 'oRRSSSSSSSSSSRRo', 'oRRRSSSSssSSSRRo', 'oRRRSSSSSSSSRRRo', 'oRRRSSSrrSSSRRRo', '.oRRRSSSSSSRRRo.', '.oRRRRSSSSRRRRo.', '..oKKKKSSKKKKo..', '...ooKKKKKKoo...', '.....oooooo.....'],
+    hawk: ['....oooooooo....', '..ooHHHHHHHHoo..', '.oHHHHHHHHHHHHo.', 'oHHHHHHHHHHHHHHo', 'oHHSSSSSSSSSSHHo', 'oHSSPPPPPPPPSSHo', 'oHSPPwPPPPwPPSHo', 'oHSSPPPPPPPPSSHo', 'oHSSSSSSSSSSSSHo', 'oHSSSSSssSSSSSHo', 'oHSSSSSSSSSSSSHo', '.oSSSSkkkkSSSSo.', '.oSSSSSSSSSSSSo.', '..oSSSSSSSSSSo..', '...ooSSSSSSoo...', '.....oooooo.....'],
+    strange: ['....oooooooo....', '..ooHHHHHHHHoo..', '.oHHHHHHHHHHHHo.', 'oHHHHHHHHHHHHHHo', 'oHgSSSSSSSSSSgHo', 'oHgSSSSSSSSSSgHo', 'oHSkkSSSSSSkkSHo', 'oHSSbSSSSSSbSSHo', 'oHSSSSSssSSSSSHo', 'oHSSSSSSSSSSSSHo', 'oHSSSddddddSSSHo', '.oSSSSdkkdSSSSo.', '.oCCSSSddSSSCCo.', '..oCCCCSSCCCCo..', '...ooCCCCCCoo...', '.....oooooo.....'],
+    wanda: ['..R..R.oo.R..R..', '..oRRRRRRRRRRo..', '.oHRRRRRRRRRRHo.', 'oHHHHHHHHHHHHHHo', 'oHHSSSSSSSSSSHHo', 'oHHSSSSSSSSSSHHo', 'oHHSgSSSSSSgSHHo', 'oHHSSSSSSSSSSHHo', 'oHHSSSSssSSSSHHo', 'oHHHSSSSSSSSHHHo', 'oHHHSSSrrSSSHHHo', '.oHHHSSSSSSHHHo.', '.oHHHHSSSSHHHHo.', '..oHHHHSSHHHHo..', '...ooHHHHHHoo...', '.....oooooo.....'],
+    reed: ['....oooooooo....', '..ooHHHHHHHHoo..', '.oHHHHHHHHHHHHo.', 'oHHHHHHHHHHHHHHo', 'oHgSSSSSSSSSSgHo', 'oHgSSSSSSSSSSgHo', 'oHSkkSSSSSSkkSHo', 'oHSSbSSSSSSbSSHo', 'oHSSSSSssSSSSSHo', 'oHSSSSSSSSSSSSHo', 'oHSSSSSkkSSSSSHo', '.oSSSSSSSSSSSSo.', '.oBBSSSSSSSSBBo.', '..oBBBBSSBBBBo..', '...ooBBBBBBoo...', '.....oooooo.....']
+  };
+  var HERO_PAL = {
+    ironman: { o: '#000', R: '#c4161c', G: '#e8b92a', w: '#e9ffff' },
+    cap: { o: '#000', B: '#1f4aa8', S: '#f0c49a', W: '#f4f7ff', w: '#ffffff', k: '#7a4a30' },
+    thor: { o: '#000', Y: '#e8c04a', D: '#b8862b', S: '#f0c49a', M: '#c8d0d6', b: '#2d7de0', k: '#5a3a20' },
+    hulk: { o: '#000', G: '#4cb04a', g: '#2f7a2e', H: '#2a1d3a', w: '#e8ffe0', k: '#143a14' },
+    widow: { o: '#000', R: '#c4501c', S: '#f3d2b8', g: '#2f9a5a', s: '#d9a98c', r: '#b0343c', K: '#1a1a1e' },
+    hawk: { o: '#000', H: '#6b4a2a', S: '#f0c49a', P: '#6a3fb0', w: '#e9dcff', s: '#d9a98c', k: '#7a4a30' },
+    strange: { o: '#000', H: '#2a2018', g: '#c8c8c8', S: '#f0c49a', k: '#2a2018', b: '#5a7fb0', s: '#d9a98c', d: '#2a2018', C: '#b8281c' },
+    wanda: { o: '#000', R: '#d8202a', H: '#7a2a1c', S: '#f3d2b8', g: '#2f9a5a', s: '#d9a98c', r: '#b0343c' },
+    reed: { o: '#000', H: '#2a2018', g: '#c8c8c8', S: '#f0c49a', k: '#2a2018', b: '#5a7fb0', s: '#d9a98c', B: '#2a5cc8' }
+  };
+  Object.keys(HERO_ART).forEach(function (k) { STK['h_' + k] = pixelSprite(HERO_ART[k], HERO_PAL[k]); });
+
   var STICKER_LIST = [
     { id: 'sigil', label: 'Segel Hex' }, { id: 'bolt', label: 'Petir' }, { id: 'warn', label: 'Awas' },
     { id: 'crack', label: 'Retak' }, { id: 'eye', label: 'Mata' }, { id: 'planet', label: 'Dunia Retak' },
     { id: 'topeng', label: 'Topeng Pixel' }, { id: 'portal', label: 'Portal' }, { id: 'cabang', label: 'Cabang Waktu' },
     { id: 'pecahan', label: 'Pecahan' }, { id: 'api', label: 'Api' }, { id: 'orb', label: 'Inti Energi' },
-    { id: 'rune', label: 'Rune' }, { id: 'bintang', label: 'Bintang' }
+    { id: 'rune', label: 'Rune' }, { id: 'bintang', label: 'Bintang' },
+    { id: 'h_ironman', label: 'Iron Man' }, { id: 'h_cap', label: 'Captain America' }, { id: 'h_thor', label: 'Thor' },
+    { id: 'h_hulk', label: 'Hulk' }, { id: 'h_widow', label: 'Black Widow' }, { id: 'h_hawk', label: 'Hawkeye' },
+    { id: 'h_strange', label: 'Doctor Strange' }, { id: 'h_wanda', label: 'Scarlet Witch' }, { id: 'h_reed', label: 'Mr. Fantastic' }
   ];
 
   /* Stiker dibuat seperti stiker cetak asli: gambar datar + tepi putih die-cut + bayangan + kilap tipis */
