@@ -469,12 +469,52 @@
     { id: 'rune', label: 'Rune' }, { id: 'bintang', label: 'Bintang' }
   ];
 
+  /* Stiker dibuat seperti stiker cetak asli: gambar datar + tepi putih die-cut + bayangan + kilap tipis */
+  var spriteCache = {};
+  function makeSprite(id, S) {
+    var key = id + '|' + S;
+    if (spriteCache[key]) return spriteCache[key];
+    var fn = STK[id];
+    var b = Math.max(2, S * 0.055);
+    var N = Math.ceil(S + b * 4 + 4), c = N / 2;
+    var art = document.createElement('canvas'); art.width = art.height = N;
+    var a = art.getContext('2d');
+    a.save(); a.translate(c, c); a.scale(S / 2 * 0.86, S / 2 * 0.86);
+    a.lineJoin = 'round'; a.lineCap = 'round';
+    fn(a, 0);
+    a.restore();
+    /* kilap: cahaya dari kiri atas, gelap tipis di bawah, hanya di area gambar */
+    a.save(); a.globalCompositeOperation = 'source-atop';
+    var gl = a.createLinearGradient(c - S * 0.45, c - S * 0.45, c + S * 0.45, c + S * 0.45);
+    gl.addColorStop(0, 'rgba(255,255,255,0.28)'); gl.addColorStop(0.45, 'rgba(255,255,255,0)'); gl.addColorStop(1, 'rgba(0,0,0,0.22)');
+    a.fillStyle = gl; a.fillRect(0, 0, N, N);
+    a.restore();
+    /* siluet tepi putih */
+    var sil = document.createElement('canvas'); sil.width = sil.height = N;
+    var s = sil.getContext('2d');
+    for (var i = 0; i < 24; i++) {
+      var an = i / 24 * Math.PI * 2;
+      s.drawImage(art, Math.cos(an) * b, Math.sin(an) * b);
+    }
+    s.globalCompositeOperation = 'source-in'; s.fillStyle = '#f6f2e4'; s.fillRect(0, 0, N, N);
+    var out = document.createElement('canvas'); out.width = out.height = N;
+    var o = out.getContext('2d');
+    o.drawImage(sil, 0, 0);
+    o.drawImage(art, 0, 0);
+    return (spriteCache[key] = { cv: out, N: N, b: b });
+  }
+
   function drawSticker(ctx, id, x, y, size, rot) {
-    var fn = STK[id]; if (!fn) return;
+    if (!STK[id]) return;
+    var m = ctx.getTransform ? ctx.getTransform() : null;
+    var k = m ? (Math.hypot(m.a, m.b) || 1) : 1;
+    var S = Math.max(8, Math.round(size * k));
+    var sp = makeSprite(id, S);
     ctx.save();
-    ctx.translate(x, y); ctx.rotate(rot || 0); ctx.scale(size / 2, size / 2);
-    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-    fn(ctx, size / 2);
+    ctx.translate(x, y); ctx.rotate(rot || 0);
+    ctx.shadowColor = 'rgba(0,0,0,0.38)'; ctx.shadowBlur = sp.b * 1.6; ctx.shadowOffsetX = sp.b * 0.4; ctx.shadowOffsetY = sp.b * 0.9;
+    var w = sp.N / k;
+    ctx.drawImage(sp.cv, -w / 2, -w / 2, w, w);
     ctx.restore();
   }
 
@@ -488,7 +528,8 @@
         if (g.cells.length > 1 && ((ci + k) % 2 !== 0)) return;
         var an = g.cells.length === 1 ? ANCHORS[k % ANCHORS.length] : ANCHORS[(k * 2 + ci) % 4];
         var r = U.rng(k * 131 + ci * 17 + 5);
-        drawSticker(ctx, id, c.x + c.w * an[0], c.y + c.h * an[1], size * (0.9 + r() * 0.2), (r() - 0.5) * 0.6);
+        var jx = (r() - 0.5) * 0.06, jy = (r() - 0.5) * 0.06;
+        drawSticker(ctx, id, c.x + c.w * (an[0] + jx), c.y + c.h * (an[1] + jy), size * (0.85 + r() * 0.3), (r() - 0.5) * 0.95);
       });
     });
   }

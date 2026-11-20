@@ -589,7 +589,7 @@
       var cv = document.createElement('canvas');
       cv.width = 40; cv.height = 40; cv.setAttribute('aria-hidden', 'true');
       cv.style.width = '24px'; cv.style.height = '24px';
-      C.drawSticker(cv.getContext('2d'), s.id, 20, 20, 34, 0);
+      C.drawSticker(cv.getContext('2d'), s.id, 20, 19, 30, 0);
       b.appendChild(cv); b.appendChild(el('span', '', s.label));
       b.addEventListener('click', function () {
         var i = state.stickers.indexOf(s.id);
