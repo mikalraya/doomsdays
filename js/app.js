@@ -97,6 +97,7 @@
     }
     if (prev === 'result' && name !== 'result') { finalCache = null; clearTimeout(prepTimer); }
     state.screen = name;
+    document.body.dataset.screen = name;
     SCREENS.forEach(function (n) { $('screen-' + n).hidden = (n !== name); });
     if (name === 'booth') DD.fx.pause(); else DD.fx.resume();
     var h = $('screen-' + name).querySelector('[data-focus]');
@@ -626,7 +627,33 @@
 
   /* ---------------- event ---------------- */
   function bindEvents() {
-    $('btnStart').addEventListener('click', function () { DD.audio.unlock(); state.pendingUpload = false; $('setupNextLabel').textContent = 'Lanjut'; show('setup'); });
+    function startWith(muted) {
+      DD.audio.unlock(); DD.audio.setMuted(muted); updateSoundUI();
+      state.pendingUpload = false; $('setupNextLabel').textContent = 'Lanjut'; show('setup');
+    }
+    $('btnSoundOn').addEventListener('click', function () { startWith(false); });
+    $('btnSoundOff').addEventListener('click', function () { startWith(true); });
+
+    /* modal info */
+    var modalOpener = null;
+    function openModal(name) {
+      var m = $('modal'), sec = m.querySelector('[data-modal="' + name + '"]');
+      if (!sec) return;
+      Array.prototype.forEach.call(m.querySelectorAll('[data-modal]'), function (x) { x.hidden = (x !== sec); });
+      $('modalTitle').textContent = sec.dataset.title;
+      modalOpener = document.activeElement;
+      m.hidden = false;
+      $('modalClose').focus();
+    }
+    function closeModal() {
+      $('modal').hidden = true;
+      if (modalOpener && modalOpener.focus) modalOpener.focus();
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-modal-open]'), function (b) {
+      b.addEventListener('click', function () { openModal(b.dataset.modalOpen); });
+    });
+    $('modalClose').addEventListener('click', closeModal);
+    $('modal').addEventListener('click', function (e) { if (e.target === $('modal')) closeModal(); });
     $('btnLandingUpload').addEventListener('click', function () { DD.audio.unlock(); state.pendingUpload = true; $('setupNextLabel').textContent = 'Pilih foto'; show('setup'); });
 
     $('btnSetupBack').addEventListener('click', function () { show('landing'); });
@@ -683,6 +710,11 @@
 
     /* keyboard: Spasi = ambil foto, Esc = batal */
     document.addEventListener('keydown', function (e) {
+      if (!$('modal').hidden) {
+        if (e.key === 'Escape') closeModal();
+        else if (e.key === 'Tab') { e.preventDefault(); $('modalClose').focus(); }
+        return;
+      }
       if (state.screen !== 'booth') return;
       if (e.key === 'Escape' && state.running) { cancelSession(); return; }
       if ((e.code === 'Space' || e.key === ' ') && !e.repeat) {

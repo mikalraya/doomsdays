@@ -225,7 +225,7 @@
     spaced(ctx, th.title, W / 2, ty, spacing);
     ctx.shadowBlur = 0;
 
-    var ss = Math.max(12, Math.min(g.head * 0.15, W * 0.032));
+    var ss = Math.max(12 * s, Math.min(g.head * 0.15, W * 0.032));
     ctx.font = '700 ' + ss + 'px ' + FB;
     ctx.fillStyle = th.dim;
     spaced(ctx, th.sub, W / 2, g.m + g.head * 0.8, ss * 0.22);
@@ -235,7 +235,7 @@
     var fTop = last.y + last.h;
     ctx.strokeStyle = th.line2; ctx.lineWidth = 2 * s;
     ctx.beginPath(); ctx.moveTo(W * 0.25, fTop + g.foot * 0.14); ctx.lineTo(W * 0.75, fTop + g.foot * 0.14); ctx.stroke();
-    var fs1 = Math.max(12, Math.min(g.foot * 0.19, W * 0.04));
+    var fs1 = Math.max(12 * s, Math.min(g.foot * 0.19, W * 0.04));
     ctx.font = '800 ' + fs1 + 'px ' + FB; ctx.fillStyle = th.accent;
     spaced(ctx, fmtDate(o.date || new Date()), W / 2, fTop + g.foot * 0.38, fs1 * 0.12);
     var fs2 = fs1 * 0.68;

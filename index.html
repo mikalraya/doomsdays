@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#070908">
+  <meta name="theme-color" content="#06150e">
   <meta name="color-scheme" content="dark">
   <meta name="referrer" content="no-referrer">
-  <meta name="description" content="Photobooth bertema apokaliptik. Foto diproses di perangkatmu dan tidak diunggah ke mana pun.">
+  <meta name="description" content="Photobooth pixel bertema Doomsday. Foto diproses di perangkatmu dan tidak diunggah ke mana pun.">
   <title>DOOMSDAY Photobooth</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070908'/%3E%3Cpath d='M16 3l11 6.5v13L16 29 5 22.5v-13z' fill='none' stroke='%233dff8b' stroke-width='2'/%3E%3Cpath d='M16 10l5 9h-10z' fill='%23e0b84a'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306150e'/%3E%3Crect x='4' y='4' width='24' height='24' fill='%2314502f' stroke='%23000' stroke-width='2'/%3E%3Crect x='9' y='10' width='14' height='13' fill='%23b4beb8'/%3E%3Crect x='11' y='13' width='3' height='3' fill='%233dff8b'/%3E%3Crect x='18' y='13' width='3' height='3' fill='%233dff8b'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/filters.js"></script>
   <script defer src="js/compose.js"></script>
@@ -17,9 +17,9 @@
   <script defer src="js/fx.js"></script>
   <script defer src="js/app.js"></script>
 </head>
-<body>
-  <!-- Sprite ikon -->
+<body data-screen="landing">
   <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-doom" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="4" y="0" width="8" height="1" fill="#000"/><rect x="2" y="1" width="2" height="1" fill="#000"/><rect x="4" y="1" width="8" height="1" fill="#14502f"/><rect x="12" y="1" width="2" height="1" fill="#000"/><rect x="1" y="2" width="1" height="1" fill="#000"/><rect x="2" y="2" width="12" height="1" fill="#14502f"/><rect x="14" y="2" width="1" height="1" fill="#000"/><rect x="1" y="3" width="1" height="1" fill="#000"/><rect x="2" y="3" width="3" height="1" fill="#14502f"/><rect x="5" y="3" width="6" height="1" fill="#b4beb8"/><rect x="11" y="3" width="3" height="1" fill="#14502f"/><rect x="14" y="3" width="1" height="1" fill="#000"/><rect x="0" y="4" width="1" height="1" fill="#000"/><rect x="1" y="4" width="3" height="1" fill="#14502f"/><rect x="4" y="4" width="8" height="1" fill="#b4beb8"/><rect x="12" y="4" width="3" height="1" fill="#14502f"/><rect x="15" y="4" width="1" height="1" fill="#000"/><rect x="0" y="5" width="1" height="1" fill="#000"/><rect x="1" y="5" width="2" height="1" fill="#14502f"/><rect x="3" y="5" width="10" height="1" fill="#b4beb8"/><rect x="13" y="5" width="2" height="1" fill="#14502f"/><rect x="15" y="5" width="1" height="1" fill="#000"/><rect x="0" y="6" width="1" height="1" fill="#000"/><rect x="1" y="6" width="2" height="1" fill="#14502f"/><rect x="3" y="6" width="1" height="1" fill="#b4beb8"/><rect x="4" y="6" width="2" height="1" fill="#3dff8b"/><rect x="6" y="6" width="4" height="1" fill="#b4beb8"/><rect x="10" y="6" width="2" height="1" fill="#3dff8b"/><rect x="12" y="6" width="1" height="1" fill="#b4beb8"/><rect x="13" y="6" width="2" height="1" fill="#14502f"/><rect x="15" y="6" width="1" height="1" fill="#000"/><rect x="0" y="7" width="1" height="1" fill="#000"/><rect x="1" y="7" width="2" height="1" fill="#14502f"/><rect x="3" y="7" width="2" height="1" fill="#b4beb8"/><rect x="5" y="7" width="1" height="1" fill="#3dff8b"/><rect x="6" y="7" width="4" height="1" fill="#b4beb8"/><rect x="10" y="7" width="1" height="1" fill="#3dff8b"/><rect x="11" y="7" width="2" height="1" fill="#b4beb8"/><rect x="13" y="7" width="2" height="1" fill="#14502f"/><rect x="15" y="7" width="1" height="1" fill="#000"/><rect x="0" y="8" width="1" height="1" fill="#000"/><rect x="1" y="8" width="2" height="1" fill="#14502f"/><rect x="3" y="8" width="4" height="1" fill="#b4beb8"/><rect x="7" y="8" width="2" height="1" fill="#6f7a74"/><rect x="9" y="8" width="4" height="1" fill="#b4beb8"/><rect x="13" y="8" width="2" height="1" fill="#14502f"/><rect x="15" y="8" width="1" height="1" fill="#000"/><rect x="0" y="9" width="1" height="1" fill="#000"/><rect x="1" y="9" width="2" height="1" fill="#14502f"/><rect x="3" y="9" width="4" height="1" fill="#b4beb8"/><rect x="7" y="9" width="2" height="1" fill="#6f7a74"/><rect x="9" y="9" width="1" height="1" fill="#0a0f0c"/><rect x="10" y="9" width="3" height="1" fill="#b4beb8"/><rect x="13" y="9" width="2" height="1" fill="#14502f"/><rect x="15" y="9" width="1" height="1" fill="#000"/><rect x="0" y="10" width="1" height="1" fill="#000"/><rect x="1" y="10" width="3" height="1" fill="#14502f"/><rect x="4" y="10" width="8" height="1" fill="#b4beb8"/><rect x="12" y="10" width="3" height="1" fill="#14502f"/><rect x="15" y="10" width="1" height="1" fill="#000"/><rect x="0" y="11" width="1" height="1" fill="#000"/><rect x="1" y="11" width="3" height="1" fill="#14502f"/><rect x="4" y="11" width="1" height="1" fill="#b4beb8"/><rect x="5" y="11" width="1" height="1" fill="#6f7a74"/><rect x="6" y="11" width="1" height="1" fill="#0a0f0c"/><rect x="7" y="11" width="1" height="1" fill="#6f7a74"/><rect x="8" y="11" width="1" height="1" fill="#0a0f0c"/><rect x="9" y="11" width="1" height="1" fill="#6f7a74"/><rect x="10" y="11" width="1" height="1" fill="#0a0f0c"/><rect x="11" y="11" width="1" height="1" fill="#b4beb8"/><rect x="12" y="11" width="3" height="1" fill="#14502f"/><rect x="15" y="11" width="1" height="1" fill="#000"/><rect x="0" y="12" width="1" height="1" fill="#000"/><rect x="1" y="12" width="4" height="1" fill="#14502f"/><rect x="5" y="12" width="6" height="1" fill="#b4beb8"/><rect x="11" y="12" width="4" height="1" fill="#14502f"/><rect x="15" y="12" width="1" height="1" fill="#000"/><rect x="1" y="13" width="1" height="1" fill="#000"/><rect x="2" y="13" width="5" height="1" fill="#14502f"/><rect x="7" y="13" width="2" height="1" fill="#b4beb8"/><rect x="9" y="13" width="5" height="1" fill="#14502f"/><rect x="14" y="13" width="1" height="1" fill="#000"/><rect x="2" y="14" width="1" height="1" fill="#000"/><rect x="3" y="14" width="10" height="1" fill="#14502f"/><rect x="13" y="14" width="1" height="1" fill="#000"/><rect x="3" y="15" width="10" height="1" fill="#000"/></symbol>
     <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></symbol>
     <symbol id="i-flip" viewBox="0 0 24 24"><path d="M20 7H8a4 4 0 0 0-4 4v1M4 17h12a4 4 0 0 0 4-4v-1"/><path d="M17 4l3 3-3 3M7 14l-3 3 3 3"/></symbol>
     <symbol id="i-mirror" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 7L3 17h5zM16 7l5 10h-5z"/></symbol>
@@ -33,53 +33,120 @@
     <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.2 6.2L12 17l-5.6 3 1.2-6.2L3 9.5l6.3-.8z"/></symbol>
   </svg>
 
-  <!-- Lapisan atmosfer -->
   <canvas id="fx" class="fx" aria-hidden="true"></canvas>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true"></div>
+  <div class="plate" aria-hidden="true"><span>DOOM</span><svg class="plate-mask" viewBox="0 0 16 16"><use href="#i-doom"/></svg><span>BOOTH</span></div>
+  <div class="bar">
+    <svg class="bar-icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-doom"/></svg>
+    <div class="bar-ticker" aria-hidden="true">
+      <span class="bar-msg">Pilih opsi suara</span>
+      <div class="bar-track">
+        <span>MULTIVERSE RUNTUH<i></i>TIGA SEMESTA<i></i>SATU ANCAMAN<i></i>BAB PENUTUP<i></i></span>
+        <span>MULTIVERSE RUNTUH<i></i>TIGA SEMESTA<i></i>SATU ANCAMAN<i></i>BAB PENUTUP<i></i></span>
+        <span>MULTIVERSE RUNTUH<i></i>TIGA SEMESTA<i></i>SATU ANCAMAN<i></i>BAB PENUTUP<i></i></span>
+      </div>
+    </div>
+    <button class="btn-icon bar-sound" type="button" data-sound-toggle aria-pressed="true" aria-label="Suara shutter: aktif">
+      <svg class="ico ico-on" aria-hidden="true"><use href="#i-sound"/></svg><svg class="ico ico-off" aria-hidden="true"><use href="#i-mute"/></svg>
+    </button>
+  </div>
 
-  <!-- Video sumber kamera (tidak ditampilkan; dipakai sebagai sumber canvas) -->
+  <button id="cornerLeft" class="corner-btn cb-l" type="button" data-modal-open="briefing" aria-label="Briefing film">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-doom"/></svg>
+  </button>
+  <button id="cornerRight" class="corner-btn cb-r" type="button" data-modal-open="roster" aria-label="Karakter di trailer">
+    <svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>
+  </button>
+  <div class="side-tabs" aria-hidden="true"><i class="st-g">I</i><i class="st-y">II</i><i class="st-r">III</i></div>
+  <div class="tags">
+    <button class="tag" type="button" data-modal-open="briefing">Briefing film</button>
+    <button class="tag" type="button" data-modal-open="roster">Karakter</button>
+  </div>
+  <footer class="below">
+    <p class="film-sub">Avengers</p>
+    <p class="film-title">DOOMSDAY</p>
+    <p class="film-line">Multiverse Saga <i></i> Bab Penutup</p>
+    <nav class="flinks" aria-label="Info"><button type="button" data-modal-open="privacy">Privasi</button><i></i><button type="button" data-modal-open="credits">Kredit</button></nav>
+    <p class="fine">Situs penggemar tidak resmi. Tidak berafiliasi dengan Marvel atau Disney. Jangan dipakai komersial.</p>
+  </footer>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-box">
+      <h2 id="modalTitle" class="modal-title">Info</h2>
+      <div class="modal-body">
+        <section data-modal="briefing" data-title="Briefing film" hidden>
+          <ul>
+            <li>Ancaman eksistensial baru memaksa pahlawan dari tiga semesta bersatu untuk menghentikan peristiwa katastropik.</li>
+            <li>Pihak yang terlibat: Avengers, New Avengers, Wakandans, Fantastic Four, dan X-Men. Mereka harus menyingkirkan rasa saling curiga. Keputusan mereka menentukan masa depan Multiverse.</li>
+            <li>Film ini menutup babak Multiverse Saga. Sekuelnya, Avengers: Secret Wars, dijadwalkan tayang 17 Desember 2027.</li>
+            <li>Antagonis utama: Doctor Doom, diperankan Robert Downey Jr. Rencana awalnya berbasis Kang the Conqueror, lalu berubah ke Doom.</li>
+          </ul>
+          <p class="note">Sinopsis "tiga semesta" berasal dari buku From Endgame to Doomsday: A Marvel Studios Visual Dictionary, bukan siaran pers resmi.</p>
+        </section>
+        <section data-modal="roster" data-title="Karakter di trailer" hidden>
+          <ul>
+            <li>Fantastic Four: Pedro Pascal, Vanessa Kirby, Joseph Quinn, Ebon Moss-Bachrach.</li>
+            <li>Dari MCU: Sam Wilson sebagai Captain America, Ant-Man, Winter Soldier, Shuri, M'Baku, Namor, Shang-Chi, Loki, dan Yelena.</li>
+            <li>Dari X-Men: Patrick Stewart, Ian McKellen, James Marsden, dan Rebecca Romijn.</li>
+            <li>Di akhir trailer, Thor bertemu Captain America (Chris Evans), yang terlihat berambut lebih panjang.</li>
+          </ul>
+          <p class="note">Dugaan bahwa Doom adalah varian Tony Stark masih spekulasi.</p>
+        </section>
+        <section data-modal="privacy" data-title="Privasi" hidden>
+          <ul>
+            <li>Foto diproses di perangkatmu dan tidak dikirim ke server mana pun.</li>
+            <li>Tidak ada analitik, pelacak, atau pihak ketiga.</li>
+            <li>Kamera dimatikan saat kamu pindah layar, menyembunyikan tab, atau menutup halaman.</li>
+            <li>Foto tidak disimpan di localStorage atau IndexedDB.</li>
+          </ul>
+        </section>
+        <section data-modal="credits" data-title="Kredit" hidden>
+          <ul>
+            <li>Situs penggemar tidak resmi. Tidak berafiliasi dengan Marvel atau Disney. Nama dan merek adalah milik pemegang haknya.</li>
+            <li>Topeng pixel, bingkai, dan stiker digambar sendiri dengan SVG dan canvas.</li>
+            <li>Font Pixelify Sans oleh The Pixelify Sans Project Authors, lisensi SIL Open Font License 1.1. Angka memakai font Silkscreen oleh The Silkscreen Project Authors, lisensi yang sama.</li>
+          </ul>
+        </section>
+      </div>
+      <button id="modalClose" class="btn btn-primary" type="button">Tutup</button>
+    </div>
+  </div>
+
   <video id="cam" class="cam-src" playsinline muted autoplay aria-hidden="true" tabindex="-1"></video>
   <input id="fileInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" tabindex="-1" aria-hidden="true">
 
-  <!-- ============ 1. LANDING ============ -->
+  <!-- 1. LANDING -->
   <main id="screen-landing" class="screen landing" aria-labelledby="logo">
     <div class="landing-inner">
-      <svg class="sigil" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-        <polygon points="100,8 180,54 180,146 100,192 20,146 20,54" fill="none" stroke="#3dff8b" stroke-width="3"/>
-        <polygon points="100,34 158,67 158,133 100,166 42,133 42,67" fill="none" stroke="#e0b84a" stroke-width="1.5"/>
-        <polygon points="100,62 140,128 60,128" fill="#e0b84a" opacity=".9"/>
-        <circle cx="100" cy="112" r="7" fill="#070908"/>
-        <path d="M100 8 L92 40 L108 62 L96 90 L112 118 L104 150 L100 192" fill="none" stroke="#ff4a4f" stroke-width="2.5" stroke-linejoin="round"/>
-      </svg>
-      <p class="eyebrow">Protokol Terakhir &bull; Sesi Foto</p>
-      <h1 id="logo" class="logo" data-text="DOOMSDAY" tabindex="-1" data-focus>DOOMSDAY</h1>
-      <p class="tagline">PHOTOBOOTH</p>
-      <p class="lead">Abadikan momen di ambang kehancuran. Ambil foto, pilih bingkai &amp; filter apokaliptik, lalu unduh hasilnya.</p>
-      <div class="actions">
-        <button id="btnStart" class="btn btn-primary btn-lg" type="button">
-          <svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg><span>Mulai</span>
-        </button>
-        <button id="btnLandingUpload" class="btn btn-ghost" type="button">
-          <svg class="ico" aria-hidden="true"><use href="#i-upload"/></svg><span>Unggah dari galeri</span>
-        </button>
+      <div class="hang" aria-hidden="true">
+        <div class="hang-body"><i class="thread"></i><svg class="hang-doom" viewBox="0 0 16 16" focusable="false"><use href="#i-doom"/></svg></div>
       </div>
+      <h1 id="logo" class="sr-only" tabindex="-1" data-focus>DOOMSDAY Photobooth</h1>
+      <p class="welcome">Selamat datang di Doomsday Photobooth. Tiga semesta runtuh, satu ancaman menghantui. Abadikan foto terakhirmu dengan bingkai dan filter Doomsday.</p>
+      <div class="segs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="choose">Pilih pengaturan dan mulai sesi</p>
+      <div class="sound-opts" role="group" aria-label="Pilih opsi suara lalu mulai">
+        <button id="btnSoundOn" class="btn-px" type="button">Suara nyala</button>
+        <button id="btnSoundOff" class="btn-px" type="button">Suara mati</button>
+      </div>
+      <button id="btnLandingUpload" class="btn-link" type="button">
+        <svg class="ico" aria-hidden="true"><use href="#i-upload"/></svg><span>Atau unggah dari galeri</span>
+      </button>
       <p class="privacy"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Foto diproses di perangkatmu, tidak diunggah.</p>
       <p id="insecureNote" class="note-warn" role="note" hidden>Halaman ini tidak dibuka lewat HTTPS, jadi browser memblokir kamera. Kamu tetap bisa memakai "Unggah dari galeri".</p>
     </div>
-    <p class="disclaimer">Tema visual orisinal buatan sendiri. Tidak berafiliasi dengan pemilik merek atau karya mana pun.</p>
   </main>
 
-  <!-- ============ 2. SETUP ============ -->
+  <!-- 2. SETUP -->
   <section id="screen-setup" class="screen setup" aria-labelledby="setupTitle" hidden>
     <header class="topbar">
       <button id="btnSetupBack" class="btn-icon" type="button" aria-label="Kembali ke awal"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
       <h2 id="setupTitle" class="top-title" tabindex="-1" data-focus>Atur Sesi</h2>
-      <button class="btn-icon" type="button" data-sound-toggle aria-pressed="true" aria-label="Suara shutter: aktif">
-        <svg class="ico ico-on" aria-hidden="true"><use href="#i-sound"/></svg><svg class="ico ico-off" aria-hidden="true"><use href="#i-mute"/></svg>
-      </button>
+      <span class="top-spacer" aria-hidden="true"></span>
     </header>
     <div class="panel-block">
       <h3 class="sec-title">Pilih layout</h3>
@@ -94,7 +161,7 @@
     </div>
   </section>
 
-  <!-- ============ 3. IZIN KAMERA ============ -->
+  <!-- 3. IZIN KAMERA -->
   <section id="screen-permission" class="screen permission" aria-labelledby="permTitle" hidden>
     <header class="topbar">
       <button id="btnPermBack" class="btn-icon" type="button" aria-label="Kembali"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
@@ -127,14 +194,12 @@
     </div>
   </section>
 
-  <!-- ============ 4. BOOTH ============ -->
+  <!-- 4. BOOTH -->
   <section id="screen-booth" class="screen booth" aria-label="Kamera photobooth" hidden>
     <header class="topbar">
       <button id="btnBoothBack" class="btn-icon" type="button" aria-label="Kembali"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
       <h2 id="boothProgress" class="top-title" tabindex="-1" data-focus>Siap</h2>
-      <button class="btn-icon" type="button" data-sound-toggle aria-pressed="true" aria-label="Suara shutter: aktif">
-        <svg class="ico ico-on" aria-hidden="true"><use href="#i-sound"/></svg><svg class="ico ico-off" aria-hidden="true"><use href="#i-mute"/></svg>
-      </button>
+      <span class="top-spacer" aria-hidden="true"></span>
     </header>
     <div id="stageWrap" class="stage-wrap">
       <div id="stage" class="stage">
@@ -166,7 +231,7 @@
     </div>
   </section>
 
-  <!-- ============ 5. HASIL ============ -->
+  <!-- 5. HASIL -->
   <section id="screen-result" class="screen result" aria-labelledby="resultTitle" hidden>
     <header class="topbar">
       <button id="btnResultBack" class="btn-icon" type="button" aria-label="Kembali ke pengaturan layout"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg></button>
@@ -202,7 +267,7 @@
         <button id="btnPng" class="btn btn-primary" type="button"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Unduh PNG</span></button>
         <button id="btnJpg" class="btn btn-primary" type="button"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Unduh JPG</span></button>
         <button id="btnShare" class="btn btn-gold" type="button"><svg class="ico" aria-hidden="true"><use href="#i-share"/></svg><span>Bagikan</span></button>
-        <button id="btnPrint" class="btn btn-gold" type="button"><svg class="ico" aria-hidden="true"><use href="#i-print"/></svg><span>Siap cetak 4x6</span></button>
+        <button id="btnPrint" class="btn btn-gold" type="button"><svg class="ico" aria-hidden="true"><use href="#i-print"/></svg><span>Cetak 4x6</span></button>
         <button id="btnRetakeAll" class="btn btn-ghost" type="button"><svg class="ico" aria-hidden="true"><use href="#i-retake"/></svg><span>Ulangi semua</span></button>
         <button id="btnRestart" class="btn btn-ghost" type="button"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg><span>Sesi baru</span></button>
       </div>

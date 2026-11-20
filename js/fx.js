@@ -36,9 +36,8 @@
         if (p.x > w + 4) p.x = -4;
         ctx.globalAlpha = p.a;
         ctx.fillStyle = p.c;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, 6.2832);
-        ctx.fill();
+        var sz = p.r < 1.2 ? 2 : p.r < 2 ? 3 : 4;
+        ctx.fillRect(Math.round(p.x), Math.round(p.y), sz, sz);
       }
       ctx.globalAlpha = 1;
     }
